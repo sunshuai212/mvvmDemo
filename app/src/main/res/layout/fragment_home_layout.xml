@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers"/>
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers"/>
+        <import type="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <variable name="viewModel" type="com.chomper.watermap.ui.main.HomeViewModel"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:padding="8dp"
+                android:gravity="bottom"
+                android:fitsSystemWindows="true"
+                android:background="@mipmap/top_bg_img_big"
+                android:orientation="horizontal">
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="@{viewModel::onUserClick}"
+                    android:src="@mipmap/navigation_icon_me"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#BFD1F0"
+                    android:text="输入要搜索的名字"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:onClick="@{viewModel::onSearchClick}"
+                    android:layout_height="30dp"
+                    android:background="@drawable/search_background"/>
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"
+
+                    android:text="输入要搜索的名字"
+                    android:onClick="@{viewModel::onSearchClick}"
+                    android:src="@mipmap/navigation_icon_search"
+            />
+
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="17dp"
+                android:paddingRight="17dp"
+                app:items="@{viewModel.homeDataList}"
+                app:itemBinding="@{viewModel.itemBinding}"
+                app:layoutManager="@{LayoutManagers.grid(2)}"
+                app:lineManager="@{LineManagers.both()}"
+                android:background="@color/white"/>
+    </LinearLayout>
+
+</layout>

@@ -1,6 +1,7 @@
 package me.goldze.mvvmhabit.binding.viewadapter.recyclerview;
 
 
+import android.graphics.Color;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -38,6 +39,15 @@ public class LineManagers {
             @Override
             public RecyclerView.ItemDecoration create(RecyclerView recyclerView) {
                 return new DividerLine(recyclerView.getContext(), DividerLine.LineDrawMode.VERTICAL);
+            }
+        };
+    }
+
+ public static LineManagerFactory bothWhite() {
+        return new LineManagerFactory() {
+            @Override
+            public RecyclerView.ItemDecoration create(RecyclerView recyclerView) {
+                return new DividerLine(recyclerView.getContext(), DividerLine.dip2px(recyclerView.getContext(),5), DividerLine.LineDrawMode.BOTH, Color.parseColor("#FFFFFF"));
             }
         };
     }

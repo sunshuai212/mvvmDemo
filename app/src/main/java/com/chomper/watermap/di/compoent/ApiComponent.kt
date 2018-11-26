@@ -2,14 +2,16 @@ package com.chomper.watermap.di.compoent
 
 
 import com.bilibili.svgatools.di.module.LiveVideoModuel
-import com.chomper.watermap.ui.main.MainActivity
 import com.chomper.watermap.di.scope.ApplicationScope
+import com.chomper.watermap.ui.login.LoginViewModel
+import com.chomper.watermap.ui.main.HomeFragment
+import com.chomper.watermap.ui.main.HomeViewModel
 import dagger.Subcomponent
-import me.goldze.mvvmhabit.base.BaseViewModel
 
 @ApplicationScope
 @Subcomponent(modules = [LiveVideoModuel::class])
 interface ApiComponent {
-    fun inject(baseViewModel: BaseViewModel)
-    fun inject(baseViewModel: MainActivity)
+    fun inject(homeFragment: HomeFragment)
+    fun inject(loginViewModel: LoginViewModel)
+    fun inject(homeViewModel: HomeViewModel)
 }

@@ -53,13 +53,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.android.support:multidex:1.0.3'
-
     implementation 'com.google.android.material:material:1.1.0-alpha01'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
@@ -69,12 +68,11 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.11'
     kapt 'com.google.dagger:dagger-compiler:2.11'
     compileOnly 'javax.annotation:jsr250-api:1.0'
-
     /* CrashWoodpecker */
     debugImplementation 'me.drakeet.library:crashwoodpecker:1.3.2'
     releaseImplementation 'me.drakeet.library:crashwoodpecker:1.3.2'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
-
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation 'com.daasuu:BubbleLayout:1.2.0'
 }

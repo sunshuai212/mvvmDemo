@@ -1,23 +1,48 @@
 package com.chomper.watermap.ui.main
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.chomper.watermap.BR
 import com.chomper.watermap.R
-import com.chomper.watermap.application.WaterApplication
-import com.chomper.watermap.di.LiveApiService
-import javax.inject.Inject
+import com.chomper.watermap.databinding.ActivityMainBinding
+import com.chomper.watermap.entity.TabEntity
+import com.flyco.tablayout.listener.CustomTabEntity
+import kotlinx.android.synthetic.main.activity_main.*
+import me.goldze.mvvmhabit.base.BaseActivity
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
+    override fun initContentView(savedInstanceState: Bundle?): Int {
+        return R.layout.activity_main
+    }
 
-    @Inject
-    lateinit var liveApiService: LiveApiService
+    override fun initVariableId(): Int {
+        return BR.viewModel
+    }
 
-    @SuppressLint("CheckResult")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        WaterApplication.get()?.apiComponent?.inject(this)
+    private val mTitles = arrayOf("首页", "数据", "地图")
+    private val mIconUnselectIds = intArrayOf(
+        R.mipmap.tabbar_icon_home_default,
+        R.mipmap.tabbar_icon_fx_default,
+        R.mipmap.tabbar_icon_dt_default
+    )
+    private val mIconSelectIds = intArrayOf(
+        R.mipmap.tabbar_icon_home_selected,
+        R.mipmap.tabbar_icon_fx_selected,
+        R.mipmap.tabbar_icon_dt_selected
+    )
+    private val mTabEntities = ArrayList<CustomTabEntity>()
+    private val mFragments = ArrayList<Fragment>()
 
+    override fun initData() {
+        super.initData()
+        mFragments.add(HomeFragment.newInstance())
+        mFragments.add(DataFragment.newInstance())
+        mFragments.add(MapFragment.newInstance())
+
+        for (i in mTitles.indices) {
+            mTabEntities.add(TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))
+        }
+        tab.setTabData(mTabEntities, this, R.id.content, mFragments)
     }
 }
