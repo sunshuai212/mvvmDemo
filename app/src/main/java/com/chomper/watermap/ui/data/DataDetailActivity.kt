@@ -20,12 +20,13 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import com.github.mikephil.charting.utils.Utils
 import kotlinx.android.synthetic.main.activity_detail_layout.*
 import me.goldze.mvvmhabit.base.BaseActivity
+import me.goldze.mvvmhabit.utils.StatusBarUtil
 import java.util.*
 import kotlin.math.roundToInt
 
 
 class DataDetailActivity : BaseActivity<ActivityDetailLayoutBinding, DataDetailViewModel>(),
-    OnChartValueSelectedListener {
+        OnChartValueSelectedListener {
     override fun onNothingSelected() {
 
 
@@ -45,6 +46,8 @@ class DataDetailActivity : BaseActivity<ActivityDetailLayoutBinding, DataDetailV
 
     override fun initData() {
         super.initData()
+        StatusBarUtil.setTransparentForImageView(this, toolBar)
+
         val homeData = intent.getSerializableExtra("data") as HomeData
         viewModel.initData(homeData)
     }

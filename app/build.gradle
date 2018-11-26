@@ -39,10 +39,6 @@ android {
         textOutput 'stdout'
         baseline file("lint-baseline.xml")
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
@@ -75,4 +71,5 @@ dependencies {
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     implementation 'com.daasuu:BubbleLayout:1.2.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
 }

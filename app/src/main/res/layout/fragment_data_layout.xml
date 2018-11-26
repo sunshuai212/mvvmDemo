@@ -1,88 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
 
-        <variable name="viewModel" type="com.chomper.watermap.ui.main.DataViewModel"/>
+        <variable
+            name="viewModel"
+            type="com.chomper.watermap.ui.main.DataViewModel" />
     </data>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:padding="8dp"
-                android:gravity="bottom"
-                android:fitsSystemWindows="true"
-                android:background="@mipmap/top_bg_img_big"
-                android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@mipmap/top_bg_img_big"
+            android:fitsSystemWindows="true"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:onClick="@{viewModel::finish}"
-                    android:src="@mipmap/navigation_icon_back"
-            />
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:src="@mipmap/navigation_icon_back" />
+
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/white"
-                    android:text="历史数据"
-                    android:layout_marginRight="50dp"
-                    android:gravity="center"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="5dp"
-                    android:layout_height="30dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="历史数据"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-        >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
             <LinearLayout
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-            >
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:text="日期"
-                        android:gravity="center"
-                />
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:text="日期"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
                 <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    android:id="@+id/rv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
 
             </LinearLayout>
+
             <HorizontalScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                >
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                     <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp">
-                        
+                        android:id="@+id/head_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal">
+
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        android:id="@+id/rv_hirstory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                     </androidx.recyclerview.widget.RecyclerView>
                 </LinearLayout>
