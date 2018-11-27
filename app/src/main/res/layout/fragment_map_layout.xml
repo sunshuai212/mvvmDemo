@@ -4,11 +4,56 @@
     <data>
 
 
+        <variable name="viewModel" type="com.chomper.watermap.ui.main.MapViewModel"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="vertical"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent">
 
+        <LinearLayout
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:padding="8dp"
+                android:gravity="center"
+                android:fitsSystemWindows="true"
+                android:background="@mipmap/top_bg_img_big"
+                android:orientation="horizontal">
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@mipmap/navigation_icon_me"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#BFD1F0"
+                    android:text="输入要搜索的名字"
+                    android:gravity="center"
+                    android:layout_height="30dp"
+                    android:background="@drawable/search_background"/>
+
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="15sp"
+                    android:text="输入要搜索的名字"
+                    android:src="@mipmap/navigation_icon_search"
+            />
+
+        </LinearLayout>
+
+        <com.baidu.mapapi.map.MapView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        </com.baidu.mapapi.map.MapView>
     </LinearLayout>
 </layout>

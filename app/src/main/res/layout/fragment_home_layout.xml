@@ -15,10 +15,11 @@
             android:layout_height="match_parent"
     >
         <LinearLayout
+                android:id="@+id/toolBar"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="45dp"
                 android:padding="8dp"
-                android:gravity="bottom"
+                android:gravity="center"
                 android:fitsSystemWindows="true"
                 android:background="@mipmap/top_bg_img_big"
                 android:orientation="horizontal">
@@ -28,7 +29,6 @@
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
                     android:onClick="@{viewModel::onUserClick}"
                     android:src="@mipmap/navigation_icon_me"
             />
@@ -38,7 +38,6 @@
                     android:textColor="#BFD1F0"
                     android:text="输入要搜索的名字"
                     android:gravity="center"
-                    android:layout_marginBottom="5dp"
                     android:onClick="@{viewModel::onSearchClick}"
                     android:layout_height="30dp"
                     android:background="@drawable/search_background"/>
@@ -49,8 +48,6 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
                     android:textSize="15sp"
-                    android:layout_marginBottom="10dp"
-
                     android:text="输入要搜索的名字"
                     android:onClick="@{viewModel::onSearchClick}"
                     android:src="@mipmap/navigation_icon_search"

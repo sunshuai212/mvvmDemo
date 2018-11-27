@@ -1,6 +1,5 @@
 package com.chomper.watermap.ui.main
 
-import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -19,6 +18,7 @@ import com.chomper.watermap.ui.adapter.HirstoryDataHeader
 import kotlinx.android.synthetic.main.fragment_data_layout.*
 import me.goldze.mvvmhabit.base.BaseFragment
 import me.goldze.mvvmhabit.binding.viewadapter.recyclerview.DividerLine
+import me.goldze.mvvmhabit.utils.StatusBarUtil
 
 class DataFragment : BaseFragment<FragmentDataLayoutBinding, DataViewModel>() {
     override fun initContentView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): Int {
@@ -37,6 +37,7 @@ class DataFragment : BaseFragment<FragmentDataLayoutBinding, DataViewModel>() {
 
     override fun initData() {
         super.initData()
+        StatusBarUtil.setTranslucentForImageViewInFragment(activity, toolBar)
         rv_date.layoutManager = LinearLayoutManager(context)
         rv_hirstory.layoutManager = LinearLayoutManager(context)
         rv_date.overScrollMode = View.OVER_SCROLL_NEVER

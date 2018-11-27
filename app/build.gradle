@@ -29,7 +29,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    sourceSets{
+        main{
+            jniLibs.srcDir 'libs'
+            //说明so的路径为该libs路径，关联所有地图SDK的so文件
+        }
+    }
     dataBinding {
         enabled true
     }
@@ -46,6 +51,7 @@ android {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/NOTICE'
     }
+
 }
 
 dependencies {
@@ -72,4 +78,5 @@ dependencies {
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     implementation 'com.daasuu:BubbleLayout:1.2.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    implementation files('libs/BaiduLBS_Android.jar')
 }

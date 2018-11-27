@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import com.chomper.watermap.BR
 import com.chomper.watermap.R
 import com.chomper.watermap.databinding.FragmentHomeLayoutBinding
+import kotlinx.android.synthetic.main.fragment_home_layout.*
 import me.goldze.mvvmhabit.base.BaseFragment
+import me.goldze.mvvmhabit.utils.StatusBarUtil
 
 class HomeFragment : BaseFragment<FragmentHomeLayoutBinding, HomeViewModel>() {
 
@@ -21,6 +23,11 @@ class HomeFragment : BaseFragment<FragmentHomeLayoutBinding, HomeViewModel>() {
 
     override fun initVariableId(): Int {
         return BR.viewModel
+    }
+
+    override fun initData() {
+        super.initData()
+        StatusBarUtil.setTranslucentForImageViewInFragment(activity, toolBar)
     }
 
 

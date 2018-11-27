@@ -1,8 +1,9 @@
 package com.chomper.watermap.application
 
+import com.baidu.mapapi.SDKInitializer
 import com.bilibili.svgatools.di.module.LiveVideoModuel
-import com.chomper.watermap.ui.main.MainActivity
 import com.chomper.watermap.di.compoent.DaggerBaseComponent
+import com.chomper.watermap.ui.main.MainActivity
 import me.drakeet.library.CrashWoodpecker
 import me.goldze.mvvmhabit.base.BaseApplication
 import me.goldze.mvvmhabit.crash.CaocConfig
@@ -14,12 +15,14 @@ class WaterApplication : BaseApplication() {
 
     val apiComponent by lazy { baseComponent.plus(LiveVideoModuel()) }
 
+    val BAIDU_AK = "kb8jRvRV7vYjkY3AqN3SAEUPawiuMYLO"
+
 
     override fun onCreate() {
         super.onCreate()
         instance = this
         CrashWoodpecker.flyTo(this)
-
+        SDKInitializer.initialize(this)
         //是否开启日志打印
         KLog.init(true)
        //配置全局异常崩溃操作

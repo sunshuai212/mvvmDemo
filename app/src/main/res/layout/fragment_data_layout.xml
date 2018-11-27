@@ -1,71 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
     <data>
-
         <variable
-            name="viewModel"
-            type="com.chomper.watermap.ui.main.DataViewModel" />
+                name="viewModel"
+                type="com.chomper.watermap.ui.main.DataViewModel"/>
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@color/white"
+                  android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="@mipmap/top_bg_img_big"
-            android:fitsSystemWindows="true"
-            android:gravity="bottom"
-            android:orientation="horizontal"
-            android:padding="8dp">
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@mipmap/top_bg_img_big"
+                android:fitsSystemWindows="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:src="@mipmap/navigation_icon_back" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@mipmap/navigation_icon_back"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="历史数据"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="历史数据"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold"/>
 
         </LinearLayout>
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+        >
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="#007AFF"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:onClick="@{viewModel::onStartTime}"
+                    android:background="@drawable/search_background"
+                    android:text="@{viewModel.startDate}"
+            />
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:textColor="#007AFF"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:onClick="@{viewModel::onEndTime}"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"
+                    android:background="@drawable/search_background"
+                    android:text="@{viewModel.endDate}"
+            />
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_btn_background"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:onClick="@{viewModel::onSearch}"
+                    android:text="查询"
+            />
+
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp"
+                android:orientation="horizontal">
+
 
             <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:gravity="center"
-                    android:text="日期"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:text="日期"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:background="#F7F7F7"/>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                        android:id="@+id/rv_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -73,27 +124,28 @@
             </LinearLayout>
 
             <HorizontalScrollView
-                android:scrollbars="none"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/head_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:orientation="horizontal">
+                            android:id="@+id/head_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="#F7F7F7"
+                            android:orientation="horizontal">
 
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_hirstory"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                            android:id="@+id/rv_hirstory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                     </androidx.recyclerview.widget.RecyclerView>
                 </LinearLayout>
