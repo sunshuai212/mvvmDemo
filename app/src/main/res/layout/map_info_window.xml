@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daasuu.bl.BubbleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            xmlns:tools="http://schemas.android.com/tools"
+                            android:id="@+id/bu_layout"
+                            android:layout_width="214dp"
+                            android:layout_height="wrap_content"
+                            app:bl_arrowDirection="bottom"
+                            app:bl_arrowHeight="8dp"
+                            app:bl_arrowPosition="60dp"
+                            app:bl_arrowWidth="16dp"
+                            app:bl_bubbleColor="#FFFFFF"
+                            android:paddingBottom="10dp"
+                            android:paddingRight="20dp"
+                            app:bl_cornersRadius="10dp">
+
+    <TextView android:id="@+id/name"
+              android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:textSize="16sp"
+              android:textColor="@color/black"
+              tools:text="1321311313"
+              android:text="测试点"
+              android:layout_marginLeft="17dp"
+              android:layout_marginTop="13dp"
+              android:layout_marginBottom="12dp"
+    />
+    <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:text="氨氮     1.3  mg/l \n总磷      1.3  mg/l \n溶解氧  1.3  mg/l"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginBottom="12dp"
+    />
+
+</com.daasuu.bl.BubbleLayout>

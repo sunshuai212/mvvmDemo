@@ -48,7 +48,7 @@ class DataDetailActivity : BaseActivity<ActivityDetailLayoutBinding, DataDetailV
         super.initData()
         StatusBarUtil.setTransparentForImageView(this, toolBar)
 
-        val homeData = intent.getSerializableExtra("data") as HomeData
+        val homeData = intent.getParcelableExtra("data") as HomeData
         viewModel.initData(homeData)
     }
 

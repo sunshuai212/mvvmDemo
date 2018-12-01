@@ -1,6 +1,7 @@
 package com.chomper.watermap.ui.main
 
 import android.os.Bundle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.chomper.watermap.BR
 import com.chomper.watermap.R
@@ -9,6 +10,7 @@ import com.chomper.watermap.entity.TabEntity
 import com.flyco.tablayout.listener.CustomTabEntity
 import kotlinx.android.synthetic.main.activity_main.*
 import me.goldze.mvvmhabit.base.BaseActivity
+import me.goldze.mvvmhabit.utils.StatusBarUtil
 import java.util.*
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -44,5 +46,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             mTabEntities.add(TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))
         }
         tab.setTabData(mTabEntities, this, R.id.content, mFragments)
+
+        val params = drawerContent.layoutParams as DrawerLayout.LayoutParams
+        params.topMargin = StatusBarUtil.getStatusBarHeight(this)
+        drawerContent.layoutParams = params
     }
 }

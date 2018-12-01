@@ -79,4 +79,5 @@ dependencies {
     implementation 'com.daasuu:BubbleLayout:1.2.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
     implementation files('libs/BaiduLBS_Android.jar')
+    implementation 'com.github.promeg:tinypinyin:1.0.0'
 }

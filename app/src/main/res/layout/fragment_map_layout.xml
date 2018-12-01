@@ -26,6 +26,7 @@
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
+                    android:onClick="@{viewModel::onUserClick}"
                     android:src="@mipmap/navigation_icon_me"
             />
             <TextView
@@ -43,6 +44,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
                     android:textSize="15sp"
+                    android:visibility="invisible"
                     android:src="@mipmap/navigation_icon_search"
             />
 

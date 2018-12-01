@@ -9,6 +9,7 @@
 
         <variable name="viewModel" type="com.chomper.watermap.ui.main.HomeViewModel"/>
     </data>
+
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -55,16 +56,22 @@
 
 
         </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swrefresh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="17dp"
-                android:paddingRight="17dp"
-                app:items="@{viewModel.homeDataList}"
-                app:itemBinding="@{viewModel.itemBinding}"
-                app:layoutManager="@{LayoutManagers.grid(2)}"
-                app:lineManager="@{LineManagers.both()}"
-                android:background="@color/white"/>
+                android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="17dp"
+                    android:paddingRight="17dp"
+                    app:items="@{viewModel.homeDataList}"
+                    app:itemBinding="@{viewModel.itemBinding}"
+                    app:layoutManager="@{LayoutManagers.grid(2)}"
+                    app:lineManager="@{LineManagers.both()}"
+                    android:background="@color/white"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
+
 
 </layout>

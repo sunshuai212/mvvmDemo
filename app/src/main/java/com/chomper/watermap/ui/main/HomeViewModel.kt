@@ -7,12 +7,14 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableArrayList
+import androidx.lifecycle.MutableLiveData
 import com.chomper.watermap.BR
 import com.chomper.watermap.R
 import com.chomper.watermap.application.WaterApplication
 import com.chomper.watermap.di.LiveApiService
 import com.chomper.watermap.entity.HomeData
 import com.chomper.watermap.ui.data.DataDetailActivity
+import com.chomper.watermap.ui.search.SearchActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import me.goldze.mvvmhabit.base.BaseViewModel
@@ -25,11 +27,13 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
 
     var homeDataList = ObservableArrayList<HomeData>()
 
+    var showDrawerLayout = MutableLiveData<Boolean>()
+
     var itemBinding = of<HomeData>(BR.item, R.layout.item_home_layout)
         .bindExtra(BR.itemClickListener, object : OnItemClickListener {
             override fun onItemClick(item: HomeData) {
                 startActivity(DataDetailActivity::class.java, Bundle().apply {
-                    putSerializable("data", item)
+                    putParcelable("data", item)
                 })
             }
         })
@@ -64,11 +68,13 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     }
 
     fun onUserClick(view: View) {
-
+        showDrawerLayout.value = true
     }
 
     fun onSearchClick(view: View) {
-
+        startActivity(SearchActivity::class.java, Bundle().apply {
+            putParcelableArrayList("data", homeDataList)
+        })
     }
 
     companion object {
